@@ -12,12 +12,12 @@ type TodoType = {
 
 export default function App() {
   // useStateの<>の中に型を指定してあげる
-  const [todos, setTodos] = useState<any>([]);
+  const [todos, setTodos] = useState<Array<TodoType>>([]);
 
   // axiosで取ってきて、成功したら(then)setTodosの中にdataを入れとく
   const onClickFetchData = () => {
     axios
-      .get<Array<Todotype>>("https://jsonplaceholder.typicode.com/todos")
+      .get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos")
       .then((res) => {
         setTodos(res.data);
       });
